@@ -1,5 +1,26 @@
 # vinext-starter
 
+## JobStreat authentication database
+
+Authentication now uses PostgreSQL. Copy `.env.example` to `.env.local`, then set
+the `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_HOST`, and
+`POSTGRES_PORT` values for database `job_streat`. For Cloudflare deployment,
+use `DATABASE_URL` as a secret. The runtime uses the Neon serverless PostgreSQL
+driver, so use a PostgreSQL URL that supports HTTP/WebSocket serverless access
+(such as Neon) when deploying to Cloudflare Workers.
+
+Email is unique and case-normalized at registration, so the same Gmail/email must
+be entered on login. Account and session primary keys are UUIDs.
+
+### Prisma auth migration
+
+The auth schema is also maintained in `prisma/schema.prisma`. It matches the
+registration and login form: unique email, hashed password and salt, applicant or
+recruiter role, and UUID sessions. After filling `DATABASE_URL` with the actual
+password, run `npm run db:migrate` to apply the included migration to a new
+database. Use `npm run db:migrate:dev -- --name <migration_name>` only when you
+change `prisma/schema.prisma` and need to create a subsequent local migration.
+
 A clean full-stack starter running on [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and Drizzle support.
 
 ## Prerequisites
