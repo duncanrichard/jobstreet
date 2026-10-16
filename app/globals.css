@@ -1,7 +1,212 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: #fff8f2; font-family: Arial, Helvetica, sans-serif; }
+body { margin: 0; background: #f7faf8; font-family: Arial, Helvetica, sans-serif; }
 button, input { font: inherit; }
 button { cursor: pointer; }
+input::placeholder { color: #94a3b8; }
+
+/* Keep the primary navigation available while the page scrolls. */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* Blue-black-white theme override for the existing job content. */
+[class*="text-emerald"] { color: #dbeafe !important; }
+[class*="bg-emerald"] { background-color: #eff6ff !important; }
+[class*="border-emerald"] { border-color: #93c5fd !important; }
+[class*="shadow-emerald"] { --tw-shadow-color: rgb(37 99 235 / 12%) !important; }
+
+main > section#home {
+  background: radial-gradient(circle at 8% 8%, rgb(59 130 246 / 40%), transparent 28rem), linear-gradient(120deg, #020617, #0b1b49 52%, #1456cf) !important;
+}
+
+[class*="bg-[#0b6a58]"] { background-color: #1d4ed8 !important; }
+[class*="text-[#0b6a58]"], [class*="text-[#0b8069]"], [class*="text-[#16715f]"] { color: #1d4ed8 !important; }
+[class*="bg-[#eaf4ef]"] { background-color: #eff6ff !important; }
+[class*="bg-[#123f37]"] { background: linear-gradient(120deg, #020617, #0b1b49, #1d4ed8) !important; }
+[class*="bg-[#175249]"] { background-color: #10265e !important; }
+[class*="text-[#17443a]"] { color: #172554 !important; }
+[class*="bg-[#f4f8f6]"] { background-color: #f8fbff !important; }
+
+/* Email authentication fields: clearer hierarchy and keyboard focus. */
+input[placeholder="Alamat email"],
+input[placeholder="Kata sandi"],
+input[placeholder="Konfirmasi kata sandi"] {
+  border-color: #bfdbfe !important;
+  background: #f8fbff;
+}
+
+input[placeholder="Alamat email"]:focus,
+input[placeholder="Kata sandi"]:focus,
+input[placeholder="Konfirmasi kata sandi"]:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 4px rgb(37 99 235 / 16%);
+}
+
+/* Official-style multicolour Google mark on the Google sign-in action. */
+button[class*="justify-center"][class*="gap-3"] .text-xl {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  font-size: 0;
+  background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%234285F4' d='M17.64 9.205c0-.638-.057-1.251-.164-1.841H9v3.482h4.844a4.14 4.14 0 0 1-1.798 2.717v2.258h2.909c1.703-1.568 2.685-3.878 2.685-6.616z'/%3E%3Cpath fill='%2334A853' d='M9 18c2.43 0 4.467-.806 5.955-2.179l-2.91-2.258c-.806.54-1.837.86-3.045.86-2.344 0-4.328-1.584-5.037-3.71H.956v2.332A9 9 0 0 0 9 18z'/%3E%3Cpath fill='%23FBBC05' d='M3.963 10.713A5.41 5.41 0 0 1 3.682 9c0-.594.102-1.171.281-1.713V4.955H.956A9 9 0 0 0 0 9c0 1.452.348 2.827.956 4.045z'/%3E%3Cpath fill='%23EA4335' d='M9 3.578c1.321 0 2.507.454 3.44 1.346l2.582-2.582C13.463.891 11.426 0 9 0A9 9 0 0 0 .956 4.955l3.007 2.332C4.672 5.161 6.656 3.578 9 3.578z'/%3E%3C/svg%3E");
+}
+
+/* Role choices shown after sign-in. */
+[class*="bg-[#1f5795]"] .bg-white button:first-child span:last-child,
+[class*="bg-[#1f5795]"] .bg-white button:last-child span:last-child {
+  font-size: 0;
+}
+
+[class*="bg-[#1f5795]"] .bg-white button:first-child span:last-child::after {
+  content: "Sebagai Pembuat Lowongan";
+  font-size: 0.875rem;
+}
+
+[class*="bg-[#1f5795]"] .bg-white button:last-child span:last-child::after {
+  content: "Sebagai Pelamar";
+  font-size: 0.875rem;
+}
+
+/* Refined role picker: two clear, individual cards. */
+[class*="bg-[#1f5795]"] .bg-white {
+  display: grid;
+  gap: 12px;
+  overflow: visible;
+  background: transparent;
+}
+
+[class*="bg-[#1f5795]"] .bg-white button {
+  min-height: 78px;
+  border: 0 !important;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgb(2 6 23 / 14%);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+[class*="bg-[#1f5795]"] .bg-white button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgb(2 6 23 / 22%);
+}
+
+[class*="bg-[#1f5795]"] .bg-white button span:first-child {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 10px;
+  background: #eaf2ff;
+  color: #2563eb;
+  font-size: 16px;
+}
+
+[class*="bg-[#1f5795]"] .bg-white button:first-child span:first-child {
+  color: #a16207;
+  background: #fff7d8;
+}
+
+/* Keep the email sign-in option explicit in role-specific login forms. */
+[class*="z-[80]"] form label:first-of-type::after {
+  display: block;
+  margin-top: 0.45rem;
+  color: rgb(219 234 254 / 85%);
+  content: "Gunakan email akun Anda atau username yang telah terdaftar.";
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+
+/* The registration role picker mirrors the login role picker. */
+[class*="z-[70]"] .space-y-3 {
+  display: grid;
+  gap: 14px;
+}
+
+[class*="z-[70]"] .space-y-3 > button {
+  min-height: 78px;
+  align-items: center;
+  border-radius: 14px;
+  background: #fff !important;
+  color: #1e293b !important;
+  padding: 16px 20px;
+  box-shadow: 0 8px 20px rgb(2 6 23 / 14%);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+[class*="z-[70]"] .space-y-3 > button small {
+  color: #64748b !important;
+}
+
+[class*="z-[70]"] .space-y-3 > button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgb(2 6 23 / 22%);
+}
+
+[class*="z-[70]"] .space-y-3 > button > span:first-child {
+  flex: 0 0 auto;
+}
+
+/* Keep the Google option visually inside the role-login card. */
+[class*="z-[80]"] form {
+  padding-bottom: 8.5rem !important;
+}
+
+[class*="z-[81]"] {
+  bottom: calc(50% - 260px) !important;
+  box-shadow: 0 10px 24px rgb(2 6 23 / 22%) !important;
+}
+
+/* Only the active dialog is visible; suppress the underlying dialog layer. */
+[class*="z-[70]"],
+[class*="z-[80]"] {
+  background-color: #0f172a !important;
+  backdrop-filter: none !important;
+}
+
+@media (max-height: 700px) {
+  [class*="z-[80]"] form { padding-bottom: 6.5rem !important; }
+  [class*="z-[81]"] { bottom: 10% !important; }
+}
+
+/* Registration uses the same blue, structured authentication surface. */
+[class*="z-50"] > div {
+  background: #1f5795 !important;
+  color: white;
+}
+
+[class*="z-50"] > div h2 { color: white; }
+[class*="z-50"] > div p { color: rgb(219 234 254 / 88%) !important; }
+[class*="z-50"] > div label { color: #fff !important; }
+[class*="z-50"] > div input {
+  border-color: rgb(255 255 255 / 12%) !important;
+  background: rgb(255 255 255 / 15%) !important;
+  color: white;
+}
+[class*="z-50"] > div input::placeholder { color: rgb(255 255 255 / 52%); }
+
+/* Consent checkbox sits inside the registration composition, not below it. */
+[class*="z-[60]"] {
+  bottom: calc(50% - 113px) !important;
+  border-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: rgb(255 255 255 / 88%) !important;
+}
+
+[class*="z-[60]"] input { accent-color: #ffd35a; }
+[class*="z-[60]"] button { color: #fff !important; }
+
+/* Shorter, clearer call to action in the registration modal. */
+[class*="z-50"] > div > button[class*="bg-[#1d4ed8]"] {
+  font-size: 0;
+  margin-top: 4rem !important;
+}
+[class*="z-50"] > div > button[class*="bg-[#1d4ed8]"]::after {
+  content: "Sign Up";
+  font-size: 0.875rem;
+}

@@ -21,6 +21,8 @@
 # misc
 .DS_Store
 *.pem
+.env
+.env.local
 
 # debug
 npm-debug.log*
@@ -36,6 +38,11 @@ yarn-error.log*
 
 # typescript
 next-env.d.ts
+*.tsbuildinfo
+
+# Generated archives and legacy Drizzle migration output.
+*.tgz
+/drizzle/
 
 # Maintained Vite plugin and worker sources.
 !/build/

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "JobStreat — Temukan Kariermu",
-  description: "Temukan peluang kerja terbaik bersama JobStreat.",
+  title: "JobStreat — Peluang Kerja Luar Negeri",
+  description: "Informasi lowongan kerja luar negeri dan persiapan penempatan bagi pencari kerja Indonesia.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
